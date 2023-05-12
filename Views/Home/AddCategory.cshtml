@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddCategory</title>
+</head>
+<body>
+    <div>
+        @ViewBag.Message;
+        @using (Html.BeginForm("AddCategory", "Home", FormMethod.Post))
+        {
+            @Html.TextBox("CategoryName", null, new { @class = "form-control", placeholder = "Product Category" })<br><br>
+            <input type="submit" class="btn btn-success btn block" value="Add Category" />
+        }
+    </div>
+</body>
+</html>

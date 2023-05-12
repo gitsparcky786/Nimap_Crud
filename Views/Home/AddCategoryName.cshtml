@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+@using CRUD1.Models
+@model IEnumerable<Customer>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddCategoryName</title>
+</head>
+<body>
+    <div>
+        @ViewBag.Message;
+        @using (Html.BeginForm("AddCategoryName", "Home", FormMethod.Post))
+        {
+
+
+            @Html.TextBox("CategoryName", null, new { @class = "form-control", placeholder = "Product Category" })<br><br>
+            <input type="submit" class="btn btn-success btn block" value="Add Category" />
+        }
+    </div>
+    <div>
+        <table border="1">
+            <tr>
+                <th>CID.</th>
+                <th>Product Name</th>
+            </tr>
+            @{
+                foreach (Customer cm in Model)
+                {
+                    <tr>
+                        <td>@cm.PID</td>
+                        <td>@cm.ProductName</td>
+
+                    </tr>
+
+                }
+            }
+        </table>
+    </div>
+    
+</body>
+</html>
